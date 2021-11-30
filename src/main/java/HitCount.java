@@ -7,11 +7,12 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "ViewCountServlet", urlPatterns = "/count")
 public class HitCount extends HttpServlet {
-	private int hitCount;
+	private static int hitCount;
+//	private int hitCount;
 
-//	public void reset(){
-//		hitCount = 0;
-//	}
+	public static void reset() {
+		hitCount = 0;
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
@@ -19,5 +20,13 @@ public class HitCount extends HttpServlet {
 
 		hitCount++;
 		out.println("View Count: " + hitCount);
+
+//		<form action="${pageContext.request.contextPath}/myservlet" method="post">
+//    	<input type="submit" name="button1" value="Button 1" />
+//		</form>
+
+		if (request.getParameter("button1") != null) {
+			HitCount.reset();
+		}
 	}
 }

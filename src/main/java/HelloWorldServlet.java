@@ -34,5 +34,5 @@ public class HelloWorldServlet extends HttpServlet {
             out.println("<h1>Hello World!</h1>");
         }
     }
-// ?q=Ian
+// ?q= is how you pass a querystring
 }
