@@ -1,7 +1,6 @@
 <%@ include file="index.jsp" %>
-<hr/>
 
-<h3>Login Form</h3>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
     if (request.getMethod().equalsIgnoreCase("post")) {
@@ -9,17 +8,22 @@
         String password = request.getParameter("password");
 
         if (username.equals("admin") && password.equals("password")) {
-            response.sendRedirect("/profile");
+            response.sendRedirect("/profile.jsp");
         }
     }
 %>
+<hr/>
 
+<h3>Login Form</h3>
 <br/>
-<form action="login.jsp" method="post">
-    Username:<input type="text" name="username"/><br/><br/>
-    Password:<input type="password" name="password"/><br/><br/>
+<form action="login.jsp" method="POST">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username"><br>
 
-    <input type="submit" value="login"/>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+
+    <input type="submit" value="Submit">
 </form>
 
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
