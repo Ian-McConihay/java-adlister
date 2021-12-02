@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Pizza Order</h1>
-    <form action="/pizza-order.jsp" method="POST">
+    <form action="/pizza-order" method="POST">
         <select name="crust-type">
             <option value="stuffed">Stuffed Crust</option>
             <option value="thin">Thin Crust</option>
