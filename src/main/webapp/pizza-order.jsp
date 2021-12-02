@@ -22,11 +22,11 @@
             <option value="large">Large</option>
         </select>
         <br><br>
-        <input name="toppings" value="true" type="checkbox">
+        <input name="toppings" value="peperoni" type="checkbox">
         Peperoni
-        <input name="toppings" value="true" type="checkbox">
+        <input name="toppings" value="meat" type="checkbox">
         Meat
-        <input name="toppings" value="true" type="checkbox">
+        <input name="toppings" value="veggies" type="checkbox">
         Veggies
         <br><br>
         <label for="address">Address</label>
