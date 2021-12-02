@@ -4,9 +4,9 @@
     <title>Pick Color</title>
 </head>
 <body>
-<form method="POST">
+<form action="pickcolor.jsp" method="POST">
     <label for="color">Enter the worst color</label>
-    <input type="text" id="color" name="color">
+    <input  name="color" type="text" id="color">
 </form>
 </body>
 </html>

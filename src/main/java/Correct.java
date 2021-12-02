@@ -5,18 +5,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Correct", urlPatterns = "/answer")
+@WebServlet(name = "Correct", urlPatterns = "/correct")
 public class Correct extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("pickcolor.jsp").forward(request, response);
-	}
+		String message = "Win";
+		request.setAttribute("message", message);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String color = request.getParameter("color");
-		request.setAttribute(color, color);
+		request.getRequestDispatcher("outcome.jsp").forward(request, response);
 
-		response.sendRedirect("/view-color?color=" + color);
-		System.out.println(color);
+
 	}
 }
-
