@@ -7,12 +7,12 @@ import java.io.IOException;
 
 @WebServlet(name = "Login", urlPatterns = "/login")
 public class Login extends HttpServlet {
-	@Override
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	request.getRequestDispatcher("/login.jsp").forward(request,response);
 
 	}
-	@Override
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		if (request.getMethod().equalsIgnoreCase("post")) {
 			String username = request.getParameter("username");

@@ -8,11 +8,11 @@ import java.util.List;
 
 @WebServlet("/ads")
 public class ShowAds extends HttpServlet {
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	Ads adsDao = DaoFactory.getAdsDao();
 	List<Ad> ads = adsDao.all();
 	request.setAttribute("ads", ads);
+
 	request.getRequestDispatcher("ads/index.jsp").forward(request, response);
 	}
 
