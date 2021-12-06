@@ -4,8 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet
-		(name ="LogoutServer", urlPatterns = "/logout")
+@WebServlet (name ="LogoutServer", urlPatterns = "/logout")
 class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		request.getSession().removeAttribute("user");
