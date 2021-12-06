@@ -1,19 +1,3 @@
-CREATE TABLE ad (
-                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                        title VARCHAR(50),
-                        description  VARCHAR(100) NOT NULL,
-                        userId
-                        PRIMARY KEY (id)
-);
-
-
-this.id = id;
-this.userId = userId;
-this.title = title;
-this.description = description;
-}
-
-    public Ad(long userId, String title, String description) {
-        this.userId = userId;
-this.title = title;
-this.description = description;
+use adlister_db;
+insert into user (id, username, password, email) VALUE (1, 'McConihay', 'superman', 'clarkent@dcmail.com');
+insert into ads (id, title, description) VALUE (1 ,'Mexican Chicken',' Wile E. Coyote' );

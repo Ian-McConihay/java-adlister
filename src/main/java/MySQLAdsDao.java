@@ -1,17 +1,24 @@
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.DriverManager;
+import com.mysql.cj.jdbc.Driver;
 
 public class MySQLAdsDao implements Ads {
 private Connection connection;
-private Config config = new Config();
 
-			public MySQLAdsDao() throws SQLException { //new Driver();
-				this.connection = DriverManager.getConnection(
-						config.getUrl(),
-						config.getUser(),
-						config.getPassword()
-				);
+
+			public MySQLAdsDao(Config config) {
+				try {
+					DriverManager.registerDriver(new Driver());
+					this.connection = DriverManager.getConnection(
+							config.getUrl(),
+							config.getUser(),
+							config.getPassword()
+					);
+				} catch(SQLException throwables){
+					throwables.printStackTrace();
+				}
 			}
 
 
@@ -22,23 +29,31 @@ private Config config = new Config();
 
 	@Override
 	public List<Ad> all() throws SQLException {
-		String selectQuery = "SELECT * FROM albums";
-		Statement statement = null;
-		ResultSet resultSet = null;
+		String selectQuery = "SELECT * FROM ads";
 		List<Ad> adlist = new ArrayList<>();
-		resultSet = statement.executeQuery(selectQuery);
 
-		while (resultSet.next()) {
-			System.out.println("Here's an ad:");
-			System.out.println("  id: " + resultSet.getLong("id"));
-			System.out.println("  title: " + resultSet.getString("title"));
-			System.out.println("  description: " + resultSet.getString("description"));
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(selectQuery);
+			while (resultSet.next()) {
+
+				Ad currentAd = new Ad( resultSet.getLong("id"),
+						resultSet.getString("title"),
+						resultSet.getString("description"));
+
+				adlist.add(currentAd);
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		return null;
+
+		return adlist;
 	}
 
 	@Override
 	public Long insert(Ad ad) {
+
 		return null;
 	}
 }
